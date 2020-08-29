@@ -45,4 +45,4 @@ async def mute(ctx,member:discord.Member,time:int,reason):
 
 token = os.environ.get('BOT_TOKEN')
 
-bot.run(str(token))
+Bot.run(str(token))
