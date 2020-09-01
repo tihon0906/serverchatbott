@@ -37,6 +37,57 @@ async def mute(ctx,member:discord.Member,time:int,reason):
     await channel.send(embed = emb)
     await asyncio.sleep(time * 60)
     await member.remove_roles(muterole)
+    
+@Bot.command()
+@commands.command()
+async def coin( self, ctx, userchoice ):
+        choices = [ 'Орел', 'Решка', 'Монетка упала ребром' ]
+        color = discord.Color.green()
+        choiced = random.choice(choices)
+        if userchoice == 'Орел' or userchoice == 'орёл' or userchoice == 'орел' or userchoice == 'Орёл':
+            if choiced == userchoice:
+                embed = discord.Embed(title = '🥇 Подбрасывание:', description = f'💰 `Вы выбрали:` **{userchoice}**, когда ✅ `выпало:` **Орёл!**\n\n💬 `Итог:` **Вы выиграли!**', colour = color)
+                embed.set_author( name = ctx.author, icon_url = ctx.author.avatar_url )
+                embed.set_footer( text = f'{self.client.user.name} © 2020 | Все права под защитой', icon_url = self.client.user.avatar_url )
+                await ctx.send(embed = embed)
+                print(f'[LOGS </>] [+] {ctx.author} used {PREFIX}coin command!')
+            elif choiced == 'Монетка упала ребром':
+                embed = discord.Embed(title = '🥇 Подбрасывание:', description = f'💰 `Вы выбрали:` **{userchoice}**, когда ✅ `выпало:` **Решка!**\n\n💬 `Итог:` **Проиграли :c**', colour = color)
+                embed.set_author( name = ctx.author, icon_url = ctx.author.avatar_url )
+                embed.set_footer( text = f'{self.client.user.name} © 2020 | Все права под защитой', icon_url = self.client.user.avatar_url )
+                await ctx.send(embed = embed)
+                print(f'[LOGS </>] [+] {ctx.author} used {PREFIX}coin command!')
+            else:
+                embed = discord.Embed(title = '🥇 Подбрасывание:', description = '❌ **Упс... Похоже, что можетка упала ребром!**', colour = color)
+                embed.set_author( name = ctx.author, icon_url = ctx.author.avatar_url )
+                embed.set_footer( text = f'{self.client.user.name} © 2020 | Все права под защитой', icon_url = self.client.user.avatar_url )
+                await ctx.send(embed = embed)
+                print(f'[LOGS </>] [+] {ctx.author} used {PREFIX}coin command!')
+        elif userchoice == 'решка' or userchoice =='Решка':
+            if choiced == 'Орел':
+                embed = discord.Embed(title = '🥇 Подбрасывание:', description = f'💰 `Вы выбрали:` **{userchoice}**, когда ✅ `выпало:` **Орел!**\n\n💬 `Итог:` **Проиграли :c**', colour = color)
+                embed.set_author( name = ctx.author, icon_url = ctx.author.avatar_url )
+                embed.set_footer( text = f'{self.client.user.name} © 2020 | Все права под защитой', icon_url = self.client.user.avatar_url )
+                await ctx.send(embed = embed)
+                print(f'[LOGS </>] [+] {ctx.author} used {PREFIX}coin command!')
+            elif choiced == 'Решка':
+                embed = discord.Embed(title = '🥇 Подбрасывание:', description = f'💰 `Вы выбрали:` **{userchoice}**, когда ✅ `выпало:` **Решка!**\n\n💬 `Итог:` **Вы выиграли!**', colour = color)
+                embed.set_author( name = ctx.author, icon_url = ctx.author.avatar_url )
+                embed.set_footer( text = f'{self.client.user.name} © 2020 | Все права под защитой', icon_url = self.client.user.avatar_url )
+                await ctx.send(embed = embed)
+                print(f'[LOGS </>] [+] {ctx.author} used {PREFIX}coin command!')
+            else:
+                embed = discord.Embed(title = '🥇 Подбрасывание:', description = '❌ **Упс... Похоже, что можетка упала ребром!**', colour = discord.Color.orange())
+                embed.set_author( name = ctx.author, icon_url = ctx.author.avatar_url )
+                embed.set_footer( text = f'{self.client.user.name} © 2020 | Все права под защитой', icon_url = self.client.user.avatar_url )
+                await ctx.send(embed = embed)
+                print(f'[LOGS </>] [+] {ctx.author} used {PREFIX}coin command!')
+        else:
+            embed = discord.Embed( title = '❌ Упс... Произошла ошибка...', description = f'📃 `Неверные аргументы!` | **Испосльзуйте** `{ PREFIX }coin (sign (Орел или Решка))!`', colour = discord.Color.red() )
+            embed.set_author( name = ctx.author, icon_url = ctx.author.avatar_url )
+            embed.set_footer(text = f'{self.client.user.name} © 2020 | Все права под защитой', icon_url = self.client.user.avatar_url)
+            await ctx.send( embed = embed )
+            print( f'[LOGS </>] [-] { ctx.author } doesnt use arguments to use { PREFIX }coin command!' )
 
     #0xff0000
     #15158332
