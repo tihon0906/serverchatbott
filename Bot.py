@@ -38,7 +38,7 @@ async def mute(ctx,member:discord.Member,time:int,reason):
     await asyncio.sleep(time * 60)
     await member.remove_roles(muterole)
     
-@Bot.command()
+@commands.command()
 async def coin( self, ctx, userchoice ):
         choices = [ 'Орел', 'Решка', 'Монетка упала ребром' ]
         color = discord.Color.green()
@@ -87,6 +87,7 @@ async def coin( self, ctx, userchoice ):
             embed.set_footer(text = f'{self.client.user.name} © 2020 | Все права под защитой', icon_url = self.client.user.avatar_url)
             await ctx.send( embed = embed )
             print( f'[LOGS </>] [-] { ctx.author } doesnt use arguments to use { PREFIX }coin command!' )
+
 
     #0xff0000
     #15158332
