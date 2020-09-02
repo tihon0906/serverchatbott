@@ -3,6 +3,7 @@ from  discord.ext import commands
 from discord.ext.commands import Bot
 import asyncio
 import os
+import random
 #0x4c12f5
 Bot = commands.Bot(command_prefix="!")
 
