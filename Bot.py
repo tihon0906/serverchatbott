@@ -39,7 +39,7 @@ async def mute(ctx,member:discord.Member,time:int,reason):
     await asyncio.sleep(time * 60)
     await member.remove_roles(muterole)
     
-@Bot.command()
+@commands.command()
 async def coin( self, ctx, userchoice ):
         choices = [ 'Орел', 'Решка', 'Монетка упала ребром' ]
         color = discord.Color.green()
