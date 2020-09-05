@@ -34,9 +34,23 @@ async def mute(ctx,member:discord.Member,time:int,reason):
     emb.add_field(name='Нарушитель',value=member.mention,inline=False)
     emb.add_field(name='Причина',value=reason,inline=False)
     emb.add_field(name="Время",value=time,inline=False)
+        unit = duration[-1]
+    
+    if unit == 's':
+        timed = int(duration[:-1])
+        longunit = 'секунд'
+    elif unit == 'm':
+        timed = int(duration[:-1]) * 60
+        longunit = 'минут'
+    elif unit == 'h':
+        timed = int(duration[:-1]) * 60 * 60
+        longunit = 'часов'
+    elif unit == 'd':
+        timed = int(duration[:-1]) * 60 * 60 * 24
+        longunit = 'дней'
     await member.add_roles(muterole)
     await channel.send(embed = emb)
-    await asyncio.sleep(time * 60)
+    await asyncio.sleep(time)
     await member.remove_roles(muterole)
     
 @Bot.command()
