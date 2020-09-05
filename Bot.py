@@ -18,7 +18,7 @@ async def info(ctx,member:discord.Member):
     emb.add_field(name="Когда присоединился:",value=member.joined_at,inline=False)
     emb.add_field(name='Никнейм:',value=member.display_name,inline=False)
     emb.add_field(name='Айди:',value=member.id,inline=False)
-    emb.add_field(name="Аккаунт был создан:",value=member.created_at.strftime("%a,%#d %B %Y, %I:%M %p UTC"),inline=False)
+    emb.add_field(name="Аккаунт был создан:",value=member.created_at.intftime("%a,%#d %B %Y, %I:%M %p UTC"),inline=False)
     emb.set_thumbnail(url=member.avatar_url)
     emb.set_footer(text=f"Вызвано:{ctx.message.author}",icon_url=ctx.message.author.avatar_url)
     emb.set_author(name=ctx.message.author,icon_url=ctx.message.author.avatar_url)
