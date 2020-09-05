@@ -34,7 +34,7 @@ async def mute(ctx,member:discord.Member,time:int,reason):
     emb.add_field(name='Нарушитель',value=member.mention,inline=False)
     emb.add_field(name='Причина',value=reason,inline=False)
     emb.add_field(name="Время",value=time,inline=False)
-        unit = duration[-1]
+    unit = duration[-1]
     
     if unit == 's':
         timed = int(duration[:-1])
