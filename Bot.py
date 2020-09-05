@@ -48,6 +48,10 @@ async def mute(ctx,member:discord.Member,time,reason):
     elif unit == 'd':
         timed = int(time[:-1]) * 60 * 60 * 24
         longunit = 'дней'
+    await member.add_roles(muterole)
+    await channel.send(embed = emb)
+    await asyncio.sleep()
+    await member.remove_roles(muterole)
     
 @Bot.command()
 async def coin( self, ctx, userchoice ):
