@@ -50,6 +50,7 @@ async def mute(ctx,member:discord.Member,duration,reason):
         longunit = 'дней'
     await member.add_roles(muterole)
     await channel.send(embed = emb)
+    await asyncio.sleep(duration)
     await member.remove_roles(muterole)
     
 @Bot.command()
