@@ -26,7 +26,7 @@ async def info(ctx,member:discord.Member):
 
 @Bot.command()
 @commands.has_permissions(view_audit_log=True)
-async def mute(ctx,member:discord.Member,time:int,reason):
+async def mute(ctx,member:discord.Member,duration,reason):
     channel = Bot.get_channel(748663806883921931)
     muterole = discord.utils.get(ctx.guild.roles,id=748656736013123724)
     emb = discord.Embed(title="Мут",color=0xff0000)
