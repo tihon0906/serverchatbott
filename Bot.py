@@ -102,6 +102,12 @@ async def coin( self, ctx, userchoice ):
             embed.set_footer(text = f'{self.client.user.name} © 2020 | Все права под защитой', icon_url = self.client.user.avatar_url)
             await ctx.send( embed = embed )
             print( f'[LOGS </>] [-] { ctx.author } doesnt use arguments to use { prefix }coin command!' )
+            
+@Bot.event
+async def on_ready():
+    print( 'BOT connected' )
+
+    await Bot.change_presence (status = discord.Status.online, activity = discord.Game( '𝐌𝐢𝐧𝐞𝐖𝐨𝐖𝐂𝐫𝐚𝐟𝐭' ) )
 
     #0xff0000
     #15158332
