@@ -36,7 +36,7 @@ async def mute(ctx,member:discord.Member,time:int,reason):
     emb.add_field(name="Время",value=time,inline=False)
     await member.add_roles(muterole)
     await channel.send(embed = emb)
-    await asyncio.sleep(time)
+    await asyncio.sleep(time * 60)
     await member.remove_roles(muterole)
     
 @Bot.command()
@@ -47,6 +47,7 @@ async def unmute(ctx,member:discord.Member,reason):
     emb = discord.Embed(title="Анмут",color=0xff0000)
     emb.add_field(name='Пользователь',value=ctx.message.author.mention,inline=False)
     emb.add_field(name='Замученый',value=member.mention,inline=False)
+    emb.add_field(name='Причина',value=reason,inline=False)
     await channel.send(embed = emb)
     await member.remove_roles(muterole)
     
