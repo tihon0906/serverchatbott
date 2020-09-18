@@ -26,7 +26,7 @@ async def info(ctx,member:discord.Member):
 
 @Bot.command()
 @commands.has_permissions(view_audit_log=True)
-async def mute(ctx,member:discord.Member,time,reason):
+async def mute(ctx,member:discord.Member,time:int,reason):
     channel = Bot.get_channel(748663806883921931)
     muterole = discord.utils.get(ctx.guild.roles,id=748656736013123724)
     emb = discord.Embed(title="Мут",color=0xff0000)
@@ -34,23 +34,20 @@ async def mute(ctx,member:discord.Member,time,reason):
     emb.add_field(name='Нарушитель',value=member.mention,inline=False)
     emb.add_field(name='Причина',value=reason,inline=False)
     emb.add_field(name="Время",value=time,inline=False)
-    unit = time[-1]
-    
-    if unit == 's':
-        timed = int(time[:-1])
-        longunit = 'секунд'
-    elif unit == 'm':
-        timed = int(time[:-1]) * 60
-        longunit = 'минут'
-    elif unit == 'h':
-        timed = int(time[:-1]) * 60 * 60
-        longunit = 'часов'
-    elif unit == 'd':
-        timed = int(time[:-1]) * 60 * 60 * 24
-        longunit = 'дней'
     await member.add_roles(muterole)
     await channel.send(embed = emb)
     await asyncio.sleep(time)
+    await member.remove_roles(muterole)
+    
+@Bot.command()
+@commands.has_permissions(view_audit_log=True)
+async def unmute(ctx,member:discord.Member,reason):
+    channel = Bot.get_channel(748663806883921931)
+    muterole = discord.utils.get(ctx.guild.roles,id=748656736013123724)
+    emb = discord.Embed(title="Анмут",color=0xff0000)
+    emb.add_field(name='Пользователь',value=ctx.message.author.mention,inline=False)
+    emb.add_field(name='Замученый',value=member.mention,inline=False)
+    await channel.send(embed = emb)
     await member.remove_roles(muterole)
     
 @Bot.command()
