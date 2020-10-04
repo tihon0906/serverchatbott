@@ -99,7 +99,6 @@ async def coin(ctx, userchoice):
     a = random.randint(0, 30)
     print(a)
     choices = [ 'Орел', 'Решка', 'Монетка упала ребром' ]
-        color = discord.Color.green()
         choiced = random.choice(choices)
         if userchoice == 'Орел' or userchoice == 'орёл' or userchoice == 'орел' or userchoice == 'Орёл':
             if choiced == userchoice:
