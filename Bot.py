@@ -52,6 +52,48 @@ async def unmute(ctx,member:discord.Member,reason):
     await member.remove_roles(muterole)
     
 @Bot.command()
+async def dfg(ctx, arg):
+    import random
+    a = random.randint(0, 2)
+    print(a)
+    if arg == "камень" and a == 0:
+        emb = discord.Embed(title = "ВЫПАЛ КАМЕНЬ", description = "вы выбрали камень. У бота выпал камень!", colour = 0xF0E68C)
+        emb.add_field(name = "ИТОГ", value = "У вас ничья!")
+        await ctx.send(embed = emb)
+    if arg == "камень" and a == 1:
+        emb = discord.Embed(title = "ВЫПАЛИ НОЖНИЦЫ", description = "вы выбрали камень. У бота выпали ножницы!", colour = 0xD3D3D3)
+        emb.add_field(name = "ИТОГ", value = "Вы выйграли!")
+        await ctx.send(embed = emb)
+    if arg == "камень" and a == 2:
+        emb = discord.Embed(title = "ВЫПАЛА БУМАГА", description = "вы выбрали камень. У бота выпала бумага!", colour = 0xFFD700)
+        emb.add_field(name = "ИТОГ", value = "Вы проиграли!")
+        await ctx.send(embed = emb)
+    if arg == "ножницы" and a == 0:
+        emb = discord.Embed(title = "ВЫПАЛ КАМЕНЬ", description = "вы выбрали ножницы. У бота выпал камень!", colour = 0xF0E68C)
+        emb.add_field(name = "ИТОГ", value = "Вы проиграли!")
+        await ctx.send(embed = emb)
+    if arg == "ножницы" and a == 1:
+        emb = discord.Embed(title = "ВЫПАЛИ НОЖНИЦЫ", description = "вы выбрали ножницы. У бота выпали ножницы!", colour = 0xD3D3D3)
+        emb.add_field(name = "ИТОГ", value = "У вас ничья!")
+        await ctx.send(embed = emb)
+    if arg == "ножницы" and a == 2:
+        emb = discord.Embed(title = "ВЫПАЛА БУМАГА", description = "вы выбрали ножницы. У бота выпала бумага!", colour = 0xFFD700)
+        emb.add_field(name = "ИТОГ", value = "Вы выйграли!")
+        await ctx.send(embed = emb)
+    if arg == "бумага" and a == 0:
+        emb = discord.Embed(title = "ВЫПАЛ КАМЕНЬ", description = "вы выбрали бумагу. У бота выпал камень!", colour = 0xF0E68C)
+        emb.add_field(name = "ИТОГ", value = "Вы выйграли!")
+        await ctx.send(embed = emb)
+    if arg == "бумага" and a == 1:
+        emb = discord.Embed(title = "ВЫПАЛИ НОЖНИЦЫ", description = "вы выбрали бумагу. У бота выпали ножницы!", colour = 0xD3D3D3)
+        emb.add_field(name = "ИТОГ", value = "Вы проиграли!")
+        await ctx.send(embed = emb)
+    if arg == "бумага" and a == 2:
+        emb = discord.Embed(title = "ВЫПАЛА БУМАГА", description = "вы выбрали бумагу. У бота выпала бумага!", colour = 0xFFD700)
+        emb.add_field(name = "ИТОГ", value = "У вас ничья!")
+        await ctx.send(embed = emb)
+
+@Bot.command()
 async def coin( self, ctx, userchoice ):
         choices = [ 'Орел', 'Решка', 'Монетка упала ребром' ]
         color = discord.Color.green()
