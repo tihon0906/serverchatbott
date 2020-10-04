@@ -100,7 +100,7 @@ async def coin(ctx, userchoice):
     print(a)
     choices = [ 'Орел', 'Решка', 'Монетка упала ребром' ]
     color = discord.Color.green()
-        choiced = random.choice(choices)
+    choiced = random.choice(choices)
         if userchoice == 'Орел' or userchoice == 'орёл' or userchoice == 'орел' or userchoice == 'Орёл':
             if choiced == userchoice:
                 embed = discord.Embed(title = '🥇 Подбрасывание:', description = f'💰 `Вы выбрали:` **{userchoice}**, когда ✅ `выпало:` **Орёл!**\n\n💬 `Итог:` **Вы выиграли!**', colour = color)
