@@ -128,34 +128,7 @@ async def orr(ctx, arg):
         elif b == 0:
             emb = discord.Embed(title = "МОНЕТА УПАЛА", description = f"{ctx.message.author.mention} не успел поймать монету, и она упала на пол", colour = 0xCD5C5C)
             await ctx.send(embed = emb)
-            
-@Bot.event
-async def on_message(message):
-    with open("C:\\Users\\\\Desktop\\PyBot\\UnderPlay bot\\level.json", "r") as f:
-        users = json.load(f)
-    await Bot.process_commands(message)
 
-    async def update_data(users, user):
-        if not user in users:
-            users[user] = {}
-            users[user]["exp"] = 0
-            users[user]["lvl"] = 1
-    async def add_exp(users, user, exp):
-        users[user]["exp"] += exp
-    async def add_lvl(users, user):
-        exp = users[user]["exp"]
-        lvl = users[user]["lvl"]
-        if exp > lvl:
-            await message.channel.send(f"{message.author.mention} повысил уровень!")
-            exp = users[user]["exp"] = 0
-            lvl = users[user]["lvl"] = lvl + 1
-            round(exp, 3)
-    await update_data(users, str(message.author.id))
-    await add_exp(users, str(message.author.id),0.1)
-    await add_lvl(users, str(message.author.id))
-
-    with open("C:\\Users\\тебе нахера?\\Desktop\\PyBot\\UnderPlay bot\\level.json", "w") as f:
-        json.dump(users, f)
 
             
 @Bot.event
