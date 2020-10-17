@@ -128,6 +128,15 @@ async def orr(ctx, arg):
         elif b == 0:
             emb = discord.Embed(title = "МОНЕТА УПАЛА", description = f"{ctx.message.author.mention} не успел поймать монету, и она упала на пол", colour = 0xCD5C5C)
             await ctx.send(embed = emb)
+            
+@Bot.command()
+@commands.has_permissions(administrator = True)
+async def clear(ctx, amount : int):
+    time = 1.30
+    await ctx.channel.purge(limit = amount + 1)
+    await ctx.send(f"удалено {amount} сообщений")
+    await asyncio.sleep(time)
+    await ctx.channel.purge(limit = 1)
 
 
             
